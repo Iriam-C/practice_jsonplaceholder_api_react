@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const Container = styled.section`
@@ -32,7 +33,7 @@ export default function Welcome() {
 
                 <div>
                     <Button style={{backgroundColor: "#3D98F4", color: "#fff"}}>View Posts</Button>
-                    <Button>Create Post</Button>
+                    <Link to= "/posts/create">Create Post</Link>
                 </div>
             </section>
         </Container>

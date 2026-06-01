@@ -3,6 +3,10 @@ import styled from "styled-components"
 import Welcome from "./components/Welcome"
 import ListPosts from "./components/ListPosts"
 import RegisterPost from "./components/RegisterPost"
+import EditPost from "./components/EditPost"
+import Users from "./components/Users";
+import UserPosts from "./components/UserPosts";
+
 
 const HeaderContainer = styled.header`
     display: flex;
@@ -27,7 +31,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <HeaderContainer>
+    
+    <HeaderContainer>
         <TitileHeader>API Placeholder</TitileHeader>
         <nav>
             <ul>
@@ -40,16 +45,22 @@ function App() {
                 <ItemNav>
                     <Link to='/posts/create' style={{color: "#000", textDecoration: "none"}}>New Post</Link>
                 </ItemNav>
+                <ItemNav>
+                    <Link to='/users' style={{color: "#000", textDecoration: "none"}}>Users</Link>
+                </ItemNav>
             </ul>
         </nav>
       </HeaderContainer>
-
-      {/** creacion de rutas */}
-      <Routes>
+      
+    <Routes>
+       
         <Route path="/" element={<Welcome />} />
         <Route path="/posts" element={<ListPosts />} />
         <Route path="/posts/create" element={<RegisterPost />} />
-      </Routes>
+        <Route path="/posts/edit/:id" element={<EditPost />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/users/:id/posts" element={<UserPosts />} />   
+    </Routes>
     </BrowserRouter>
   )
 }

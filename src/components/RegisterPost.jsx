@@ -1,4 +1,5 @@
 import React from 'react'
+import { useForm } from 'react-hook-form';
 import styled from 'styled-components'
 
 const Container = styled.section`
@@ -37,6 +38,30 @@ const Button = styled.input`
 `
 
 export default function RegisterPost() {
+
+    const{
+        register,
+        handleSubmit
+    } = useForm()
+
+    const verDatos = async (respuesta)=>{
+        console.log("Datos del formulario: ", respuesta);
+        console.log(respuesta)
+    }
+
+//ver datos
+    const getPost = async () => {
+            let busqueda = await fetch("https://jsonplaceholder.typicode.com/posts/1",{
+                method:"POST",
+                body: JON.stringify(respuesta),
+                userID: respuesta.uderId
+            })
+            let respuesta = await busqueda.json() 
+            setPost(respuesta)
+        }
+
+
+        //
     return (
         <Container>
             <Title>Create a New Post</Title>
@@ -44,11 +69,11 @@ export default function RegisterPost() {
                 <form>
                     <FormGroup>
                         <label>Title</label>
-                        <FormField type="text" placeholder='Enter post title' required />
+                        <FormField type="text" placeholder ='Enter post title' required{...register ("title")} />
                     </FormGroup>
                     <FormGroup>
                         <label>Body</label>
-                        <FormField placeholder='Write your post content here' required />
+                        <FormField placeholder='Write your post content here' required {...register ("body")} />
                     </FormGroup>
                     <FormGroup>
                         <label>User ID</label>
