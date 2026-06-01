@@ -89,28 +89,31 @@ export default function EditPost() {
         
             <Title>Edit Post</Title>
             <section>
-                <form onSubmit={updatePost}>
-                    <div style={{marginBottom: "1rem"}}>
-                        <label>ID</label>
-                        <input type="text"  value={post.id}  disabled />
-                    </div>
-                    <div style={{marginBottom: "1rem"}}>
-                        <label>Title</label>
-                        <input type="text" name="title" onChange={handleChange} value={post.title} required />
-                    </div>
-                    <div style={{marginBottom: "1rem"}}>
-                        <label>Body</label>
-                        <textarea value={post.body} onChange={handleChange} name="body"></textarea>
+            <form onSubmit={updatePost} className="p-3 border rounded shadow-sm">
 
-                    </div>
-                    <div style={{marginBottom: "1rem"}}>
-                        <label>User ID</label>
-                        <input type="number" value={post.userId} name="userId"  onChange={handleChange}/>
-                    </div>
-                    <div style={{marginBottom: "1rem"}}>
-                        <Button type='submit' value='Update Post' />
-                    </div>
-                </form>
+                <div className="mb-3">
+                    <label className="form-label">ID</label>
+                    <input className="form-control" value={post.id} disabled />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Title</label>
+                    <input className="form-control" name="title" value={post.title} onChange={handleChange} />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Body</label>
+                    <textarea className="form-control" name="body" value={post.body} onChange={handleChange} />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">User ID</label>
+                    <input className="form-control" name="userId" value={post.userId} onChange={handleChange} />
+                </div>
+
+                <button className="btn btn-success">Update Post</button>
+
+            </form>
             </section>
             
         </Container>

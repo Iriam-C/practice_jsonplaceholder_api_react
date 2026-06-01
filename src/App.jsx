@@ -32,25 +32,18 @@ function App() {
   return (
     <BrowserRouter>
     
-    <HeaderContainer>
-        <TitileHeader>API Placeholder</TitileHeader>
-        <nav>
-            <ul>
-                <ItemNav>
-                    <Link to='/' style={{color: "#000", textDecoration: "none", marginTop: "3px"}}>Home</Link>
-                </ItemNav>
-                <ItemNav>
-                    <Link to='/posts' style={{color: "#000", textDecoration: "none"}}>Posts</Link>
-                </ItemNav>
-                <ItemNav>
-                    <Link to='/posts/create' style={{color: "#000", textDecoration: "none"}}>New Post</Link>
-                </ItemNav>
-                <ItemNav>
-                    <Link to='/users' style={{color: "#000", textDecoration: "none"}}>Users</Link>
-                </ItemNav>
-            </ul>
-        </nav>
-      </HeaderContainer>
+    <HeaderContainer className="bg-dark text-white">
+    <TitileHeader className="p-2">API Placeholder</TitileHeader>
+
+    <nav>
+        <ul className="d-flex list-unstyled m-0 p-2">
+            <ItemNav><Link className="text-white text-decoration-none me-3" to="/">Home</Link></ItemNav>
+            <ItemNav><Link className="text-white text-decoration-none me-3" to="/posts">Posts</Link></ItemNav>
+            <ItemNav><Link className="text-white text-decoration-none me-3" to="/posts/create">New Post</Link></ItemNav>
+            <ItemNav><Link className="text-white text-decoration-none" to="/users">Users</Link></ItemNav>
+        </ul>
+    </nav>
+    </HeaderContainer>
       
     <Routes>
        

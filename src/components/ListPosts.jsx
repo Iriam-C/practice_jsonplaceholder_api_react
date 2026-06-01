@@ -58,20 +58,30 @@ export default function ListPosts() {
 
     return (
         <Container>
-            <Title>List of Post</Title>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, nostrum!</p>
-            
-            {listPosts.map ((posteo) => { 
-            return <section key={posteo.id}>
-                <div style={{margin: "1rem 0", paddingBottom: ".5rem", borderBottom: "1px solid #f0f2f5"}}>
-                    <Subtitle>{posteo.title}</Subtitle>
-                    <p style={{margin: "0"}}>User ID: {posteo.userId} </p>
-                    <p style={{margin: "0"}}>{posteo.body}</p>
-                    <Link to={`/posts/edit/${posteo.id}`}>Editar</Link>
-                    <button onClick={() => deletePost(posteo.id)} style={{ marginLeft: "10px" }}>Eliminar</button>
-                </div>
-            </section>
-        } ) }
+         <div className="container mt-4">
+
+    <h1 className="mb-3">List of Posts</h1>
+
+    {listPosts.map(posteo => (
+        <div key={posteo.id} className="card mb-3 p-3 shadow-sm">
+
+            <h5 className="text-primary">{posteo.title}</h5>
+
+            <p className="mb-1"><b>User ID:</b> {posteo.userId}</p>
+
+            <p>{posteo.body}</p>
+
+            <div className="d-flex gap-2">
+                <Link className="btn btn-warning btn-sm" to={`/posts/edit/${posteo.id}`}>Editar</Link>
+                <button className="btn btn-danger btn-sm"onClick={() => deletePost(posteo.id)}> Eliminar</button>
+                
+                        
+                   
+            </div>
+
+        </div>
+    ))}
+</div>
         </Container>
     )
 }
